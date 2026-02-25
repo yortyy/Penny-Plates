@@ -88,7 +88,7 @@ On the developing side, this is a strong app that has multiple components (front
 - **GET /foods/barcode/:barcode** – Retrieve food information from external APIs using a scanned barcode.
 - **POST /users/:userId/pantry/barcode** – Add a food item to the pantry using scanned barcode data.
 
-### Database Schema (Pantry App Version)
+### Database Schema
 
 * Users:
   * userID: number
