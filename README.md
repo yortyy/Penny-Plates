@@ -51,42 +51,32 @@ On the developing side, this is a strong app that has multiple components (front
 
 #### User
 - **GET /users/:userId** – Retrieve user profile data (pantry, meals, shopping list, shared users).
-- **POST /users/:userId** – Update user information (username, email, preferences).
+- **POST /user/** – Update user information (username, email, preferences).
+
+#### Food
+- **GET /foods/** – Retrieve foods filtered on foodID, name, brand, etc.
 
 #### Pantry
 - **GET /users/:userId/pantry** – Retrieve all food items (foodIDs, quantity, price) in the user’s pantry.
-- **PATCH /users/:userId/pantry** – Add a food item to the pantry with quantity and price.
-- **PATCH /users/:userId/pantry/:foodId** – Update quantity or price of an existing pantry item.
-- **DELETE /users/:userId/pantry/:foodId** – Remove a food item from the pantry.
+- **PATCH /user/pantry** – Add a food item to the pantry with quantity and price.
+- **PATCH /user/pantry/:foodId** – Update quantity or price of an existing pantry item.
+- **DELETE /user/pantry/:foodId** – Remove a food item from the pantry.
+- **GET /users/:userId/pantry/reciepts** – See grocery receipts in the user's pantry.
+- **POST /user/pantry/reciepts** – Upload and process a grocery receipt to extract and add food items to the pantry.
 
 #### Meals
 - **GET /users/:userId/meals** – Retrieve all meals (optionally filter by date).
 - **GET /users/:userId/meals/:date** – Retrieve meals for a specific date.
-- **POST /users/:userId/meals** – Add or update a meal (foodIDs with ratios) for a specific date.
-- **DELETE /users/:userId/meals/:mealId** – Remove a meal entry.
-
-#### Nutrition
-- **GET /users/:userId/meals/:date/nutrition** – Calculate and return the total nutrition score using external food data (e.g., Open Food Facts).
+- **POST /user/meals** – Add or update a meal (foodIDs with ratios) for a specific date.
+- **DELETE /user/meals/:mealId** – Remove a meal entry.
 
 #### Shopping List
 - **GET /users/:userId/shopping-list** – Retrieve all food items in the user’s shopping list.
-- **POST /users/:userId/shopping-list** – Add a food item to the shopping list.
-- **DELETE /users/:userId/shopping-list/:foodId** – Remove a food item from the shopping list.
+- **POST /user/shopping-list** – Add a food item to the shopping list.
+- **DELETE /user/shopping-list/:foodId** – Remove a food item from the shopping list.
 
 #### Meal Suggestions
 - **GET /users/:userId/suggestions/meals** – Retrieve suggested meals based on current pantry items.
-
-#### Sharing / Household
-- **POST /users/:userId/share** – Add another user to shared pantry, shopping list, and home group.
-- **GET /users/:userId/shared-users** – Retrieve users who have access to shared resources.
-- **DELETE /users/:userId/share/:sharedUserId** – Remove a user from shared access.
-
-#### Receipt Scanning
-- **POST /users/:userId/receipts/scan** – Upload and process a grocery receipt to extract and add food items to the pantry.
-
-#### Barcode Scanning
-- **GET /foods/barcode/:barcode** – Retrieve food information from external APIs using a scanned barcode.
-- **POST /users/:userId/pantry/barcode** – Add a food item to the pantry using scanned barcode data.
 
 ### Database Schema
 
