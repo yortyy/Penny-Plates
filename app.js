@@ -3,6 +3,8 @@ import path from 'path';
 import cookieParser from 'cookie-parser';
 import logger from 'morgan';
 
+import 'dotenv/config';
+
 import apiRouter from './app/api.js';
 import authRouter from './app/routes/auth.routes.js';
 
@@ -19,6 +21,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
 
 app.use('/api', apiRouter);
 app.use('/auth', authRouter);
