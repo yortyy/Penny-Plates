@@ -12,7 +12,7 @@ export async function getFood(req, res, next) {
   //   return;
   // }
   
-  let data = await fetch(url + `&pageSize=5&query=${search}&dataType=Foundation`);
+  let data = await fetch(url + `&pageSize=5&query=${search}&dataType=Foundation&dataType=SR%20Legacy`);
   data = await data.json();
 
   return res.send(data);

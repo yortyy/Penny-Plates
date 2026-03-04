@@ -16,3 +16,8 @@ export function signOut(req, res, next) {
         postLogoutRedirectUri: "/",
     })(req, res, next);
 }
+
+// GET /auth/user
+export function getUser(req, res) {
+    res.send("To-do endpoint");
+}
